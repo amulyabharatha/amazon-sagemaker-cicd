@@ -15,7 +15,8 @@ BUCKET_NAME = os.environ['BUCKET_NAME']
 PREFIX = os.environ['PREFIX']
 REGION = os.environ['AWS_DEFAULT_REGION']
 # Replace with your IAM role arn that has enough access (e.g. SageMakerFullAccess)
-IAM_ROLE_NAME = os.environ['IAM_ROLE_NAME']
+#PREFIX = os.environ.get("PREFIX", "DEMO-scikit-iris")
+IAM_ROLE_NAME = os.environ.get['IAM_ROLE_NAME',"arn:aws:iam::657605447075:role/service-role/AmazonSageMaker-ExecutionRole-20230911T144832"]
 GITHUB_SHA = os.environ['GITHUB_SHA']
 ACCOUNT_ID = session.boto_session.client(
     'sts').get_caller_identity()['Account']
@@ -51,7 +52,7 @@ boston_estimator = Estimator(
              "REGION": REGION,},
 
     tags=[{"Key": "email",
-           "Value": "haythemaws@gmail.com"}])
+           "Value": "amulyabharatha@gmail.com"}])
 
 boston_estimator.fit({'training': training_data_s3_uri,
                       'validation': validation_data_s3_uri}, wait=False)
