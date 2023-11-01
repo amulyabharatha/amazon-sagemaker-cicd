@@ -19,7 +19,7 @@ PREFIX = 'bouston-housing-regression'
 REGION = 'us-east-1'
 # Replace with your IAM role arn that has enough access (e.g. SageMakerFullAccess)
 #PREFIX = os.environ.get("PREFIX", "DEMO-scikit-iris")
-IAM_ROLE_NAME = 'arn:aws:iam::657605447075:role/service-role/AmazonSageMaker-ExecutionRole-20230911T144832'
+IAM_ROLE_NAME = 'arn:aws:iam::657605447075:role/service-role/AmazonSageMaker-ExecutionRole-20230911T145444'
 GITHUB_SHA = os.environ['GITHUB_SHA']
 ACCOUNT_ID = session.boto_session.client(
     'sts').get_caller_identity()['Account']
