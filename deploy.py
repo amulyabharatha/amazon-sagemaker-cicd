@@ -11,7 +11,7 @@ import botocore
 initial_instance_count = 1
 endpoint_instance_type = 'ml.m5.large'
 
-BUCKET_NAME = 'sample-sagemaker-cicd-tuto1'
+BUCKET_NAME = 'sagemaker-us-east-1-657605447075'
 PREFIX = 'bouston-housing-regression'
 OBJECT_KEY = f'{PREFIX}/reports.csv'
 
