@@ -11,12 +11,15 @@ import s3fs
 
 session = sagemaker.Session(boto3.session.Session())
 
-BUCKET_NAME = os.environ['BUCKET_NAME']
-PREFIX = os.environ['PREFIX']
-REGION = os.environ['AWS_DEFAULT_REGION']
+#BUCKET_NAME = os.environ['BUCKET_NAME']
+BUCKET_NAME = 'sagemaker-us-east-1-657605447075'
+#PREFIX = os.environ['PREFIX']
+PREFIX = 'bouston-housing-regression'
+#REGION = os.environ['AWS_DEFAULT_REGION']
+REGION = 'us-east-1'
 # Replace with your IAM role arn that has enough access (e.g. SageMakerFullAccess)
 #PREFIX = os.environ.get("PREFIX", "DEMO-scikit-iris")
-IAM_ROLE_NAME = os.environ['IAM_ROLE_NAME']
+IAM_ROLE_NAME = 'arn:aws:iam::657605447075:role/service-role/AmazonSageMaker-ExecutionRole-20230911T144832'
 GITHUB_SHA = os.environ['GITHUB_SHA']
 ACCOUNT_ID = session.boto_session.client(
     'sts').get_caller_identity()['Account']
