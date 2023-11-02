@@ -12,7 +12,7 @@ import s3fs
 session = sagemaker.Session(boto3.session.Session())
 
 #BUCKET_NAME = os.environ['BUCKET_NAME']
-BUCKET_NAME = 'sagemaker-us-east-1-657605447075'
+BUCKET_NAME = 'test_mlops_bucket'
 #PREFIX = os.environ['PREFIX']
 PREFIX = 'bouston-housing-regression'
 #REGION = os.environ['AWS_DEFAULT_REGION']
