@@ -31,6 +31,9 @@ training_data_s3_uri = 's3://{}/{}/boston-housing-training.csv'.format(
     BUCKET_NAME, PREFIX)
 validation_data_s3_uri = 's3://{}/{}/boston-housing-validation.csv'.format(
     BUCKET_NAME, PREFIX)
+print("bucket name is", BUCKET_NAME)
+print("training_data_s3_uri  name is ", training_data_s3_uri )
+
 
 
 output_folder_s3_uri = 's3://{}/{}/output/'.format(BUCKET_NAME, PREFIX)
