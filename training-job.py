@@ -11,15 +11,11 @@ import s3fs
 
 session = sagemaker.Session(boto3.session.Session())
 
-#BUCKET_NAME = os.environ['BUCKET_NAME']
-BUCKET_NAME = 'test_mlops_bucket'
-#PREFIX = os.environ['PREFIX']
-PREFIX = 'bouston-housing-regression'
-#REGION = os.environ['AWS_DEFAULT_REGION']
-REGION = 'us-east-1'
+BUCKET_NAME = os.environ['BUCKET_NAME']
+PREFIX = os.environ['PREFIX']
+REGION = os.environ['AWS_DEFAULT_REGION']
 # Replace with your IAM role arn that has enough access (e.g. SageMakerFullAccess)
-#PREFIX = os.environ.get("PREFIX", "DEMO-scikit-iris")
-IAM_ROLE_NAME = 'arn:aws:iam::657605447075:role/service-role/AmazonSageMaker-ExecutionRole-20230911T145444'
+IAM_ROLE_NAME = os.environ['IAM_ROLE_NAME']
 GITHUB_SHA = os.environ['GITHUB_SHA']
 ACCOUNT_ID = session.boto_session.client(
     'sts').get_caller_identity()['Account']
@@ -31,9 +27,6 @@ training_data_s3_uri = 's3://{}/{}/boston-housing-training.csv'.format(
     BUCKET_NAME, PREFIX)
 validation_data_s3_uri = 's3://{}/{}/boston-housing-validation.csv'.format(
     BUCKET_NAME, PREFIX)
-print("bucket name is", BUCKET_NAME)
-print("training_data_s3_uri  name is ", training_data_s3_uri )
-
 
 
 output_folder_s3_uri = 's3://{}/{}/output/'.format(BUCKET_NAME, PREFIX)
@@ -58,7 +51,7 @@ boston_estimator = Estimator(
              "REGION": REGION,},
 
     tags=[{"Key": "email",
-           "Value": "amulyabharatha@gmail.com"}])
+           "Value": "haythemaws@gmail.com"}])
 
 boston_estimator.fit({'training': training_data_s3_uri,
                       'validation': validation_data_s3_uri}, wait=False)
